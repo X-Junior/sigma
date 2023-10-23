@@ -8,6 +8,9 @@ references:
 author: frack113
 date: 2022/02/19
 modified: 2023/01/02
+tags:
+    - attack.defense_evasion
+    - attack.t1036.008
 logsource:
     product: windows
     category: file_rename
@@ -17,11 +20,11 @@ detection:
         TargetFilename|endswith: '.dll'
     filter_from_dll:
         - SourceFilename|endswith:
-            - '.dll'
-            - '.tmp'  # VSCode FP
+              - '.dll'
+              - '.tmp'  # VSCode FP
         - SourceFilename|contains:
-            - '.dll.'
-            - '\SquirrelTemp\temp'
+              - '.dll.'
+              - '\SquirrelTemp\temp'
     filter_empty_source:
         SourceFilename: ''
     filter_non_existing_source:
